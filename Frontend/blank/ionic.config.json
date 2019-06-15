@@ -1,0 +1,7 @@
+{
+  "name": "blank",
+  "integrations": {},
+  "type": "angular",
+  "v2": true,
+  "typescript": true
+}

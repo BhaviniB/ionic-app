@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="onBackPressed()" *ngIf="!searchBarVisibility">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="!searchBarVisibility && !isForRegister" (click)="onAddPressed()">
+        <ion-icon name="add" ></ion-icon>
+      </button>
+    </ion-buttons>
+
+
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="!searchBarVisibility" (click)="onMenuPressed($event)">
+        <ion-icon name="more" ></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button ion-button icon-only *ngIf="!searchBarVisibility && isForRegister && totalSelected > 0" (click)="onRegister()">
+        <ion-icon name="jet" ></ion-icon>
+      </button>
+    </ion-buttons>
+
+    
+
+    <ion-title *ngIf="!searchBarVisibility">Student</ion-title>
+
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onSearchPressed()" *ngIf="!searchBarVisibility">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-searchbar *ngIf="searchBarVisibility" animated="true" showCancelButton="true" (ionCancel)="onSearchCancel($event)" (ionInput)="onSearchInput($event)"></ion-searchbar>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-spinner *ngIf="isLoading" style="left:50%; top:5%"></ion-spinner>
+
+  <ion-item *ngIf='connectionStatus == "unknown" || connectionStatus == "none"'>
+                <ion-label center style="text-align:center">No internet connection available.</ion-label>
+                <ion-icon name="sad" item-left></ion-icon>
+  </ion-item>
+
+<ion-alpha-scroll *ngIf="students.length > 0"
+  [listData]="students"
+  key="name"
+  [itemTemplate]="alphaScrollItemTemplate"
+  [currentPageClass]="currentPageClass"
+  [triggerChange]="triggerAlphaScrollChange">
+</ion-alpha-scroll>
+
+</ion-content>

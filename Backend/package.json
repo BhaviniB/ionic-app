@@ -1,0 +1,22 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Sample backend application for Nagarro",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Bhavini Batra",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "cors": "^2.8.3",
+    "errors": "^0.3.0",
+    "express": "^4.15.2",
+    "http-status-codes": "^1.1.6",
+    "mongoose": "^4.8.6",
+    "validator": "^7.0.0",
+    "winston": "^2.3.1"
+  }
+}
